@@ -1,3 +1,13 @@
+bl_info = {
+    "name": "3D Lenticular Display",
+    "author": "Your Name",
+    "version": (1, 0, 0),
+    "blender": (4, 0, 0),
+    "location": "View3D > Sidebar (N) > 3D Lenticular",
+    "description": "Bakes light-field quilt buffers and displays real-time lenticular 3D interlacing.",
+    "category": "Render",
+}
+
 import bpy
 import gpu
 from gpu_extras.batch import batch_for_shader
@@ -780,7 +790,8 @@ def register() -> None:
 def unregister() -> None:
     for cls in reversed(CLASSES):
         bpy.utils.unregister_class(cls)
-    del bpy.types.Scene.lenticular_settings
+    if hasattr(bpy.types.Scene, "lenticular_settings"):
+        del bpy.types.Scene.lenticular_settings
 
 
 if __name__ == "__main__":
