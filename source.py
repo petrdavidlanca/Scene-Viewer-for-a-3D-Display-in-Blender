@@ -1,9 +1,9 @@
 bl_info = {
-    "name": "3D Lenticular Display",
-    "author": "Your Name",
+    "name": "Scene viewer for 3D Display",
+    "author": "Petr David Lanca",
     "version": (1, 0, 0),
     "blender": (4, 0, 0),
-    "location": "View3D > Sidebar (N) > 3D Lenticular",
+    "location": "View3D > Sidebar (N) > 3D Display",
     "description": "Bakes light-field quilt buffers and displays real-time lenticular 3D interlacing.",
     "category": "Render",
 }
@@ -712,11 +712,11 @@ class WM_OT_LenticularRealtimeDisplay(bpy.types.Operator):
 # ==============================================================================
 
 class VIEW3D_PT_LenticularControlPanel(bpy.types.Panel):
-    bl_label = "3D Lenticular Display"
-    bl_idname = "VIEW3D_PT_lenticular_control_panel"
+    bl_label = "3D Display"
+    bl_idname = "VIEW3D_PT_control_panel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "3D Lenticular"
+    bl_category = "3D Display"
 
     def draw(self, context: bpy.types.Context) -> None:
         layout = self.layout
